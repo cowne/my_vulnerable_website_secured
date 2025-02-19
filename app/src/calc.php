@@ -3,7 +3,7 @@ ob_start();
 session_start();
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['calculate'])) {
         $num_order = $_POST['num_order'];
-        if(is_numeric($num_order)){ //input Validation
+        if(is_numeric($num_order) and $num_order > 0){ //input Validation
             $totalPrice = eval("return $price * $num_order;"); // insecure
         
             echo "<div class=\"container mt-5\">";
